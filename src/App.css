@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #e0e0e0, #ffffff);
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-name {
+  font-size: 2rem;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.profile-status,
+.profile-company,
+.profile-bio {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.experience-company {
+  font-weight: bold;
+  color: #333;
+}
+
+.experience-title,
+.experience-dates {
+  font-size: 1rem;
+  color: #666;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #007bff;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 15px;
+}
+
+.navbar {
+  display: flex;
+  width: 80%;
+  margin: 30px auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav button:hover {
+  background-color: #e7f1ff;
+}
+
+.logo_itself {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f8f9fa;
+  transition: color 0.3s;
+}
+
+.logo_itself:hover {
+  color: #7eb0e3;
+}
+
+.logo_itself:active {
+  color: #0057b37f;
+}
+
+.main-title {
+  font-size: 4rem;
+  color: #007bff;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.welcome-message {
+  font-size: 2rem;
+  color: #555;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profiles {
+  padding: 1rem;
+}
+
+.profiles-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin: 20px;
+  text-align: center;
+}
+
+.profiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile-card {
+  flex: 1 1 300px;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.profile-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  font-size: 20px;
+}
+
+.profile-status {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.profile-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* New styles for Dashboard component */
+.dashboard-container {
+  padding: 2rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.greeting-message {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.no-data-message {
+  font-size: 1.2rem;
+  color: #ff4d4f;
+  /* Red for no data */
+}
+
+.logout-container {
+  margin-top: 1rem;
+}
+
+.logout-button {
+  background-color: #ff4d4f;
+  /* Red */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #d43f3f;
+  /* Darker red */
+}
+
+.profiles-link-container {
+  margin-top: 2rem;
+}
+
+.profiles-link {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.login-container,
+.register-container {
+  max-width: 500px;
+  margin: 200px auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    transition: all 0.3s;
+  }
+
+  label {
+    font-size: 1.2rem;
+    color: #555;
+  }
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.register-title {
+  margin-bottom: 1rem;
+}
+
+.login-link {
+  margin-top: 1rem;
+}
