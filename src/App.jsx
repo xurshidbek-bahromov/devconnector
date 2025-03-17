@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PostPage from "./pages/PostPage";
 import Dashboard from "./pages/Dashboard";
 import Profiles from "./pages/Profiles";
 import ProfileDetails from "./pages/ProfileDetails";
@@ -17,6 +18,15 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/profiles" element={<Profiles />} />
       <Route path="/profile/:id" element={<ProfileDetails />} />
+      <Route
+        path="/posts"
+        element={
+          <PrivateRoute>
+            <PostPage />
+          </PrivateRoute>
+        }
+      />
+
       <Route
         path="/dashboard"
         element={
