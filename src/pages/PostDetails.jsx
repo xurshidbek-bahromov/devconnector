@@ -30,7 +30,7 @@ const PostDetails = () => {
         }
     };
 
-    if (loading || !post) return <p>Loading post...</p>;
+    if (loading) return <div className="loading-spinner"></div>;
     if (error && error.msg) return <p style={{ color: "red" }}>Error: {error.msg}</p>;
 
     return (

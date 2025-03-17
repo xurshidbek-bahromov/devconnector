@@ -67,7 +67,7 @@ const PostPage = () => {
     // Misol uchun: navigate(`/posts/${postId}`); // agar sharhlar sahifasi mavjud bo'lsa
   };
 
-  if (loading) return <p>Loading posts...</p>;
+  if (loading) return <div className="loading-spinner"></div>;
   if (error && error.msg) return <p style={{ color: "red" }}>Error: {error.msg}</p>;
 
   return (
