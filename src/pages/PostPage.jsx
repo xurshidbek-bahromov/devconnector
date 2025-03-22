@@ -9,18 +9,15 @@ import {
   unlikePost,
 } from "../actions/postActions";
 import { FaThumbsUp, FaThumbsDown, FaComments, FaEdit, FaTrashAlt, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom"; 
 
 const PostPage = () => {
   const dispatch = useDispatch();
 
-  // Redux state dan postlar va auth qismini olish
   const { posts, loading, error } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
 
-  // Yangi post yaratish uchun state
   const [newPostText, setNewPostText] = useState("");
-  // Postni tahrirlash uchun state
   const [editingPostId, setEditingPostId] = useState(null);
   const [editedPostText, setEditedPostText] = useState("");
 
@@ -59,11 +56,8 @@ const PostPage = () => {
     dispatch(unlikePost(postId));
   };
 
-  // Agar "Discussion" tugmasi bosilsa – misol uchun sharhlar sahifasiga o'tish yoki modal ochish:
   const handleDiscussion = (postId) => {
-    // Hozircha misol: post id konsolga chiqariladi.
     console.log("Discussion for post:", postId);
-    // Misol uchun: navigate(`/posts/${postId}`); // agar sharhlar sahifasi mavjud bo'lsa
   };
 
   if (loading) return <div className="loading-spinner"></div>;

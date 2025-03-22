@@ -1,7 +1,6 @@
-// src/store/postReducer.js
 const initialState = {
-    posts: [],       // Barcha postlar
-    post: null,      // Tanlangan post (detal view uchun)
+    posts: [],       
+    post: null,    
     loading: true,
     error: {},
 };
@@ -20,7 +19,6 @@ export default function postReducer(state = initialState, action) {
                 posts: state.posts.map((post) =>
                     post._id === action.payload._id ? action.payload : post
                 ),
-                // Agar tekshirish uchun tanlangan post bo'lsa ham yangilanadi:
                 post: state.post && state.post._id === action.payload._id ? action.payload : state.post,
                 loading: false,
             };

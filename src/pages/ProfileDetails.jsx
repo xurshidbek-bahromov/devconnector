@@ -27,7 +27,6 @@ const ProfileDetails = () => {
 
             <p className="profile-bio">{profile.bio}</p>
 
-            {/* Agar mavjud bo’lsa, tajriba, ta`lim va qo’shimcha qism */}
             {profile.experience && profile.experience.length > 0 && (
                 <div>
                     <h3 className="experience-title">Tajriba</h3>

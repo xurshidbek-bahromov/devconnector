@@ -4,16 +4,16 @@ export const loginUser = (credentials, navigate) => async (dispatch) => {
   dispatch({ type: 'AUTH_REQUEST' });
   try {
     const res = await axios.post(
-      'https://nt-devconnector.onrender.com/api/auth', // To'g'ri endpoint
+      'https://nt-devconnector.onrender.com/api/auth', 
       credentials,
       {
         headers: { "Content-Type": "application/json" }
       }
     );
     const { token, user } = res.data;
-    localStorage.setItem('token', token); // Tokenni saqlash
+    localStorage.setItem('token', token); 
     dispatch({ type: 'AUTH_SUCCESS', payload: { token, user } });
-    navigate('/dashboard'); // Foydalanuvchini dashboardga yo‘naltirish
+    navigate('/dashboard'); 
   } catch (error) {
     console.error("Login error:", error.response?.data);
     dispatch({ type: 'AUTH_FAILURE', payload: error.response?.data });
@@ -39,11 +39,11 @@ export const registerUser = (userData, navigate) => async (dispatch) => {
       }
     );
 
-    const { token, user } = res.data; // token va user ma'lumotlari qaytadi
-    localStorage.setItem("token", token); // Token saqlanadi
+    const { token, user } = res.data; 
+    localStorage.setItem("token", token); 
     dispatch({ type: "AUTH_SUCCESS", payload: { token, user } });
     
-    navigate("/dashboard"); // Foydalanuvchini dashboard sahifasiga yo‘naltirish
+    navigate("/dashboard"); 
     return res.data;
   } catch (error) {
     console.error("Registration error detailed:", error.response?.data);

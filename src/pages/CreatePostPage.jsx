@@ -14,7 +14,7 @@ const CreatePostPage = () => {
         if (newPostText.trim()) {
             dispatch(createPost({ text: newPostText }));
             setNewPostText("");
-            navigate("/posts"); // Redirect to posts page after creating a post
+            navigate("/posts"); 
         }
     };
 

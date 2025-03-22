@@ -1,4 +1,3 @@
-// src/store/authReducer.js
 const initialState = {
     token: localStorage.getItem('token'),
     user: null,

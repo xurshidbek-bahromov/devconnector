@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Profiles from "./pages/Profiles";
 import ProfileDetails from "./pages/ProfileDetails";
 import PrivateRoute from "./components/PrivateRoute";
-import CreatePostPage from "./pages/CreatePostPage"; // Import CreatePostPage
+import CreatePostPage from "./pages/CreatePostPage"; 
 import "./App.css";
 
 function App() {

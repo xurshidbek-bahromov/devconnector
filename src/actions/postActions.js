@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// Barcha postlarni olish
+
 export const getPosts = () => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -18,7 +18,7 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-// Yangi post yaratish
+
 export const createPost = (postData) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -36,7 +36,7 @@ export const createPost = (postData) => async (dispatch) => {
   }
 };
 
-// Postni o'chirish
+
 export const deletePost = (postId) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -53,7 +53,7 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 };
 
-// Postni tahrirlash
+
 export const updatePost = (postId, postData) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -71,7 +71,7 @@ export const updatePost = (postId, postData) => async (dispatch) => {
   }
 };
 
-// Postga like qo'yish
+
 export const likePost = (postId) => async (dispatch, getState) => {
   try {
     const token = localStorage.getItem("token");
@@ -80,19 +80,19 @@ export const likePost = (postId) => async (dispatch, getState) => {
         "x-auth-token": token,
       },
     };
-    // Yangi like qatoriga qo'shamiz:
+
     const res = await axios.put(`https://nt-devconnector.onrender.com/api/posts/like/${postId}`, {}, config);
     dispatch({ type: "UPDATE_POST", payload: res.data });
   } catch (error) {
-    // Agar "Post already liked" xatosi kelib chiqsa, ushlab olib, frontend-da like qiymatini oshiramiz
+
     if (error.response && error.response.data.msg === "Post already liked") {
-      // Hozirgi postning like sonini olish uchun:
+
       const { posts } = getState().posts;
       const post = posts.find((p) => p._id === postId);
       if (post) {
         const updatedLikes = post.likes.length + 1;
-        // Frontend state-ni yangilash uchun UPDATE_POST action chaqirish mumkin.
-        const updatedPost = { ...post, likes: [...post.likes, { user: "dummy" }] }; // dummy obyekt
+  
+        const updatedPost = { ...post, likes: [...post.likes, { user: "dummy" }] };
         dispatch({ type: "UPDATE_POST", payload: updatedPost });
       }
     } else {
@@ -103,7 +103,7 @@ export const likePost = (postId) => async (dispatch, getState) => {
 };
 
 
-// Postdagi like summasidan unlike qo'yish (yoki like takrorini bekor qilish)
+
 export const unlikePost = (postId) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -121,7 +121,7 @@ export const unlikePost = (postId) => async (dispatch) => {
 };
 
 
-// Dislike qo‘yish uchun funksiyani yarating
+
 export const dislikePost = (postId) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -130,7 +130,7 @@ export const dislikePost = (postId) => async (dispatch) => {
         "x-auth-token": token,
       },
     };
-    // Backend endpointi: agar sizning API /api/posts/dislike/:id ga so‘rov yuborsa
+
     const res = await axios.put(`https://nt-devconnector.onrender.com/api/posts/dislike/${postId}`, {}, config);
     dispatch({ type: "UPDATE_POST", payload: res.data });
   } catch (error) {
@@ -139,7 +139,7 @@ export const dislikePost = (postId) => async (dispatch) => {
   }
 };
 
-// Agar "toggle" uchun dislike olib tashlash funksiyasi ham kerak bo'lsa:
+
 export const undislikePost = (postId) => async (dispatch) => {
   try {
     const token = localStorage.getItem("token");
@@ -148,7 +148,7 @@ export const undislikePost = (postId) => async (dispatch) => {
         "x-auth-token": token,
       },
     };
-    // Backend endpoint: agar API bu so‘rovni qabul qilsa
+
     const res = await axios.put(`https://nt-devconnector.onrender.com/api/posts/undislike/${postId}`, {}, config);
     dispatch({ type: "UPDATE_POST", payload: res.data });
   } catch (error) {

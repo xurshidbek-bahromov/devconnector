@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { notification } from 'antd'; 
-
 import { useDispatch } from "react-redux";
 import { registerUser } from "../actions/authActions";
 import { createProfile } from "../actions/profileActions";

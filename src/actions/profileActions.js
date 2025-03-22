@@ -1,7 +1,5 @@
-// src/actions/profileActions.js
 import axios from 'axios';
 
-// Barcha profillarni olish
 export const fetchProfiles = () => async dispatch => {
     dispatch({ type: 'FETCH_PROFILES_REQUEST' });
     try {
@@ -12,7 +10,6 @@ export const fetchProfiles = () => async dispatch => {
     }
 };
 
-// Bitta profildagi ma'lumotlarni olish (masalan, user id bo'yicha)
 export const fetchProfileById = (id) => async dispatch => {
     dispatch({ type: 'FETCH_PROFILE_REQUEST' });
     try {
@@ -28,7 +25,6 @@ export const createProfile = (profileData, navigate) => async (dispatch) => {
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                // Tokenni HTTP header orqali yuboramiz:
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
         };
@@ -40,7 +36,6 @@ export const createProfile = (profileData, navigate) => async (dispatch) => {
         );
 
         dispatch({ type: "CREATE_PROFILE_SUCCESS", payload: res.data });
-        // Profil muvaffaqiyatli yaratilgach, dashboard yoki boshqa sahifaga o'tkazish mumkin
         navigate("/dashboard");
     } catch (error) {
         console.error("Profile creation error:", error.response.data);

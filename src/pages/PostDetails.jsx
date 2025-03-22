@@ -1,20 +1,17 @@
-// src/pages/PostDetails.jsx
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";  // URL dan post ID ni olish uchun
+import { useParams } from "react-router-dom"; 
 import { useDispatch, useSelector } from "react-redux";
-import { getPost } from "../actions/postActions";       // Bitta postni olish uchun action
-import { addComment } from "../actions/postActions";      // Agar komentlar uchun alohida action bo'lsa (yoki uni postActions ichida ishlatish mumkin)
+import { getPost } from "../actions/postActions";       
+import { addComment } from "../actions/postActions";     
 import { FaPaperPlane } from "react-icons/fa";
 
 const PostDetails = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    // Foydalanuvchi va post ma'lumotlari Redux state dan olinadi  
     const { post, loading, error } = useSelector((state) => state.posts);
     const { user } = useSelector((state) => state.auth);
 
-    // Yangi sharh matni uchun state
     const [commentText, setCommentText] = useState("");
 
     useEffect(() => {

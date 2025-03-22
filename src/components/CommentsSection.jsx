@@ -8,7 +8,6 @@ const CommentsSection = ({ postId }) => {
     const { post } = useSelector((state) => state.posts);
     const [commentText, setCommentText] = useState("");
 
-    // Yangi sharh qo'shish
     const handleSubmit = (e) => {
         e.preventDefault();
         if (commentText.trim()) {
@@ -17,12 +16,10 @@ const CommentsSection = ({ postId }) => {
         }
     };
 
-    // Sharhga like berish
     const handleLike = (commentId) => {
         dispatch(likeComment(postId, commentId));
     };
 
-    // Sharhga dislike berish
     const handleDislike = (commentId) => {
         dispatch(dislikeComment(postId, commentId));
     };
@@ -30,7 +27,6 @@ const CommentsSection = ({ postId }) => {
     return (
         <div style={{ marginTop: "2rem" }}>
             <h3>Sharhlar</h3>
-            {/* Yangi sharh uchun forma */}
             <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
                 <textarea
                     style={{ width: "100%", padding: "0.5rem" }}
@@ -42,7 +38,6 @@ const CommentsSection = ({ postId }) => {
                     Sharh qo'shish
                 </button>
             </form>
-            {/* Mavjud sharhlar ro'yxati */}
             <div>
                 {post && post.comments && post.comments.map((comment) => (
                     <div
@@ -67,12 +62,10 @@ const CommentsSection = ({ postId }) => {
                             <button onClick={() => handleDislike(comment._id)}>
                                 <FaThumbsDown /> {comment.dislikes ? comment.dislikes.length : 0}
                             </button>
-                            {/* Discussion tugmasi kelajakda javob (reply) funksiyasini qo'shish uchun */}
                             <button>
                                 <FaComments /> Javob
                             </button>
                         </div>
-                        {/* Agar sharh javoblari mavjud bo'lsa, ularni shu yerda ko'rsatish mumkin */}
                         {comment.replies && comment.replies.length > 0 && (
                             <div style={{ marginLeft: "2rem", marginTop: "0.5rem" }}>
                                 {comment.replies.map((reply) => (

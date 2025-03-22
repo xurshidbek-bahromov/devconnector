@@ -4,7 +4,6 @@ import { FaUserAlt, FaSignInAlt, FaClipboardList } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // Redux holatidan tokenni olish. (Agar Redux’da auth reducer orqali token saqlanayotgan bo‘lsa.)
   const token = useSelector((state) => state.auth.token);
 
   return (
@@ -22,7 +21,6 @@ const Home = () => {
             </button>
           </Link>
           {token ? (
-            // Agar token mavjud bo'lsa – foydalanuvchi login qilgan
             <>
               <Link to="/posts">
                 <button>
@@ -36,7 +34,6 @@ const Home = () => {
               </Link>
             </>
           ) : (
-            // Token mavjud bo'lmasa – mehmon (foydalanuvchi login qilmagan)
             <>
               <Link to="/register">
                 <button>
