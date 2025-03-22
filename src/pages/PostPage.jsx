@@ -9,11 +9,10 @@ import {
   unlikePost,
 } from "../actions/postActions";
 import { FaThumbsUp, FaThumbsDown, FaComments, FaEdit, FaTrashAlt, FaPlus } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link
 
 const PostPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // Redux state dan postlar va auth qismini olish
   const { posts, loading, error } = useSelector((state) => state.posts);
@@ -73,6 +72,8 @@ const PostPage = () => {
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Posts</h2>
+      <Link to="/create-post" style={styles.createPostLink}>Create New Post</Link>
+
       {user && (
         <form onSubmit={handleCreatePost} style={styles.form}>
           <textarea

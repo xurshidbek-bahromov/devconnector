@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Profiles from "./pages/Profiles";
 import ProfileDetails from "./pages/ProfileDetails";
 import PrivateRoute from "./components/PrivateRoute";
+import CreatePostPage from "./pages/CreatePostPage"; // Import CreatePostPage
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/profiles" element={<Profiles />} />
       <Route path="/profile/:id" element={<ProfileDetails />} />
+      <Route path="/create-post" element={<CreatePostPage />} />
       <Route
         path="/posts"
         element={
